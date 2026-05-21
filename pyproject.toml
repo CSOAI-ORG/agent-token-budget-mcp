@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-token-budget-mcp"
+version = "1.0.0"
+description = "Agent Token Budget MCP — per-session spend cap with signed budget-exhausted attestations. Twin of bft-progress-council-mcp (spend-axis vs stall-axis guardrail). By MEOK AI Labs."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Nicholas Templeman", email = "nicholas@meok.ai" }]
+keywords = ["mcp", "mcp-server", "token-budget", "cost-cap", "agent-spend", "meok", "agentic"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: System :: Monitoring",
+  "Topic :: Office/Business :: Financial",
+  "Intended Audience :: Developers",
+]
+dependencies = ["mcp[cli]>=1.3.0"]
+
+[project.urls]
+Homepage = "https://meok.ai/a2a"
+Repository = "https://github.com/CSOAI-ORG/agent-token-budget-mcp"
+Documentation = "https://meok.ai/protocols"
+
+[project.scripts]
+agent-token-budget-mcp = "server:main"
+
+[tool.setuptools]
+py-modules = ["server"]
