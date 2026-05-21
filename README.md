@@ -107,6 +107,22 @@ Full catalogue: [meok.ai/anthropic-registry](https://meok.ai/anthropic-registry)
 
 Buy: https://meok.ai/a2a
 
+## Wire it up — full stack
+
+This MCP is part of the MEOK chain that turns one agent action into a fully
+signed compliance event. See
+[meok.ai/mcp-stack](https://meok.ai/mcp-stack) for the 6-MCP chain:
+
+1. **bft-progress-council-mcp** — anti-loop guardrail
+2. **agent-token-budget-mcp** — hard spend cap
+3. **agent-content-watermark-mcp** — EU AI Act Article 50(2) watermark
+4. **meok-eu-aigc-icon-mcp** — EU Code-of-Practice icon (Nov 2026 cliff)
+5. **agent-audit-logger-mcp** — hash-chained audit trail
+6. **a2a-governance-bridge-mcp** — fold all signatures into one signed event
+
+Output: ONE auditor-defensible evidence event mapped to EU AI Act Articles
+12 + 50, DORA Article 17, ISO 42001 clause 9 — plus a public verify URL.
+
 ## Licence
 
 MIT. By [MEOK AI Labs](https://meok.ai) (CSOAI LTD, UK Companies House 16939677).
