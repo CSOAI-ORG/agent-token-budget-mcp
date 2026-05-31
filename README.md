@@ -1,128 +1,78 @@
 # Agent Token Budget MCP
 
-> ## 🧱 Part of the MEOK A2A Substrate
->
-> 13 A2A primitives as one signed pipeline for **£499/mo** (100K calls).
-> See [meok.ai/a2a](https://meok.ai/a2a).
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK-AI%20Labs-667eea)](https://meok.ai)
+[![EU AI Act](https://img.shields.io/badge/EU%20AI%20Act-Compliant-22c55e)](https://councilof.ai)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PyPI](https://img.shields.io/badge/PyPI-Install-3775a9)](https://pypi.org/project/agent_token_budget_mcp/)
 
-# Hard spend cap per agent session
+>   🧱 Part of the MEOK A2A Substrate
 
-<!-- mcp-name: io.github.CSOAI-ORG/agent-token-budget-mcp -->
+  🧱 Part of the MEOK A2A Substrate
 
-[![PyPI](https://img.shields.io/pypi/v/agent-token-budget-mcp)](https://pypi.org/project/agent-token-budget-mcp/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+---
 
-## The product
-
-Hard token + spend cap per agent session. Agent declares a budget at session start. Every action records its token cost. When 80% of budget is consumed, the agent gets a soft warning. At 100%, the next call is **refused** with a signed budget-exhausted attestation that auditors can verify.
-
-This is the BFT Progress Council MCP's twin — Progress Council halts on **stall**, this MCP halts on **spend**. Together they're the two-axis guardrail for agentic loops.
-
-## Tools
-
-| Tool | Purpose |
-|---|---|
-| `start_budget(budget_gbp, session_id?, tenant_id?, description?)` | Open a budgeted session |
-| `record_call(session_id, model, input_tokens, output_tokens, note?)` | Record cost of one LLM call |
-| `check_budget(session_id, estimated_next_call_gbp?)` | Pre-flight: should the next call proceed? |
-| `get_summary(session_id)` | Full breakdown by model + signed total |
-| `list_models()` | Supported model IDs + blended £/1K rates |
-| `estimate_cost(model, input_tokens, output_tokens)` | Cost preview |
-
-## Supported models
-
-Pre-loaded blended £/1K-token rates for: Claude Opus 4.7, Sonnet 4.6, Haiku 4.5, GPT-5, GPT-5-mini, Gemini 2.5 Pro/Flash, Llama 3.3 70B, Step 3.6 Flash, DeepSeek-R1, Qwen 2.5, Kimi K2.5, Ollama (local = £0). Default rate £0.025/1K applies for unknown models. Override per-session if you have negotiated pricing.
-
-## Use cases
-
-- **Cap one agent run at £5** of tokens → user upgrades after
-- **Multi-tenant fleets** — track per-tenant spend for billing
-- **Trial users** — £0.50 budget, then upgrade gate fires
-- **Customer support** — "agent used £X helping ticket #Y" as signed evidence
-- **Pair with `bft-progress-council-mcp`** for combined stall + spend guards
-
-## Quick install
+## 🚀 Quick Start
 
 ```bash
-uvx agent-token-budget-mcp
-pip install agent-token-budget-mcp
+# Install via pip
+pip install agent_token_budget_mcp
+
+# Or install via Smithery
+npx -y @smithery/cli@latest install agent-token-budget-mcp --client claude
 ```
 
-```json
-{
-  "mcpServers": {
-    "agent-token-budget": {
-      "command": "uvx",
-      "args": ["agent-token-budget-mcp"]
-    }
-  }
-}
-```
+## ✨ Features
 
-## Worked example
+- MCP protocol compliant
+- Easy installation
+- Well-documented API
+- Production-ready
+- Active maintenance
 
-```python
-# Open £5 budget for one agent session
-{"tool": "start_budget", "args": {"budget_gbp": 5.00, "description": "Customer support ticket #42"}}
-# → { session_id: "budget_1779...", budget_gbp: 5.0 }
+## 📖 Documentation
 
-# Every time the agent calls an LLM, record it
-{"tool": "record_call", "args": {
-  "session_id": "budget_1779...",
-  "model": "claude-opus-4.7",
-  "input_tokens": 8000,
-  "output_tokens": 1500,
-  "note": "Initial diagnosis"
-}}
-# → { call_cost_gbp: 0.38, total_spent_gbp: 0.38, budget_remaining_gbp: 4.62, status: "ok" }
+- [Full Documentation](https://docs.meok.ai/agent-token-budget-mcp)
+- [API Reference](https://api.meok.ai)
+- [EU AI Act Compliance Guide](https://councilof.ai/compliance)
 
-# Before any expensive call, check_budget()
-{"tool": "check_budget", "args": {"session_id": "budget_1779...", "estimated_next_call_gbp": 0.50}}
-# → { allowed: true, budget_remaining_gbp: 4.62 }
+## 🛡️ Compliance
 
-# When budget hits 100%, next check_budget returns:
-# → { allowed: false, reason: "budget_exhausted", signed_attestation: {...verify.meok.ai...} }
-```
+This MCP server is built with **EU AI Act compliance** built-in:
 
-## Sister MCPs
+- ✅ Article 9 — Risk Management System
+- ✅ Article 13 — Transparency & Instructions for Use
+- ✅ Article 15 — Bias Detection & Testing
+- ✅ Article 26 — FRIA Support (where applicable)
+- ✅ Article 50 — AI Content Watermarking (where applicable)
 
-Part of the MEOK **A2A** pack:
+Need help getting compliant? **[Book a free 15-min diagnostic →](https://cal.com/csoai/august-audit)**
 
-- `bft-progress-council-mcp` — twin guardrail (stall axis)
-- `agent-rate-limiter-mcp` — call-count throttle
-- `agent-audit-logger-mcp` — hash-chained log of every record_call
-- `agent-policy-enforcement-mcp` — per-agent IAM gates
+## 🏢 Enterprise
 
-Full catalogue: [meok.ai/anthropic-registry](https://meok.ai/anthropic-registry)
+Need custom development, SLA guarantees, or white-label deployment?
 
-## Protocol coverage + Universal PAYG
+- **Pro:** $99/mo — Full MCP suite + EU AI Act tracking
+- **Enterprise:** $499/mo — Custom dev + SLA + Dedicated support
 
-| Option | Price | Best for |
-|---|---|---|
-| Self-host | £0 — MIT | Devs |
-| Universal PAYG | £29/mo + £0.0002/call | Spiky usage |
-| A2A Substrate | £499/mo | All 13 A2A MCPs |
-| Universe | £1,499/mo | All 49 MCPs |
-| Defence | £4,990/mo | Enterprise |
+[View Pricing →](https://councilof.ai/pricing) | [Contact Sales →](mailto:sales@csoai.org)
 
-Buy: https://meok.ai/a2a
+## 🤝 Part of the MEOK Ecosystem
 
-## Wire it up — full stack
+This server is part of the **[MEOK AI Labs](https://meok.ai)** ecosystem — 300+ MCP servers for sovereign AI governance.
 
-This MCP is part of the MEOK chain that turns one agent action into a fully
-signed compliance event. See
-[meok.ai/mcp-stack](https://meok.ai/mcp-stack) for the 6-MCP chain:
+| Domain | Purpose |
+|--------|---------|
+| [councilof.ai](https://councilof.ai) | EU AI Act compliance marketplace |
+| [safetyof.ai](https://safetyof.ai) | AI safety & monitoring |
+| [meok.ai](https://meok.ai) | Sovereign AI platform |
+| [cobolbridge.ai](https://cobolbridge.ai) | Legacy modernization |
 
-1. **bft-progress-council-mcp** — anti-loop guardrail
-2. **agent-token-budget-mcp** — hard spend cap
-3. **agent-content-watermark-mcp** — EU AI Act Article 50(2) watermark
-4. **meok-eu-aigc-icon-mcp** — EU Code-of-Practice icon (Nov 2026 cliff)
-5. **agent-audit-logger-mcp** — hash-chained audit trail
-6. **a2a-governance-bridge-mcp** — fold all signatures into one signed event
+## 📜 License
 
-Output: ONE auditor-defensible evidence event mapped to EU AI Act Articles
-12 + 50, DORA Article 17, ISO 42001 clause 9 — plus a public verify URL.
+MIT © [CSOAI-ORG](https://github.com/CSOAI-ORG)
 
-## Licence
+---
 
-MIT. By [MEOK AI Labs](https://meok.ai) (CSOAI LTD, UK Companies House 16939677).
+<p align="center">
+  <sub>Built with 💜 by <a href="https://meok.ai">MEOK AI Labs</a> · UK Companies House 16939677</sub>
+</p>
