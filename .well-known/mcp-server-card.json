@@ -1,0 +1,31 @@
+{
+  "name": "agent-token-budget-mcp",
+  "title": "Agent Token Budget Mcp",
+  "description": "Agent Token Budget MCP \u2014 per-session spend cap with signed budget-exhausted attestations. Twin of bft-progress-council-mcp (spend-axis vs stall-axis guardrail). By MEOK AI Labs.",
+  "version": "1.1.1",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "start_budget"
+    },
+    {
+      "name": "record_call"
+    },
+    {
+      "name": "check_budget"
+    },
+    {
+      "name": "get_summary"
+    },
+    {
+      "name": "list_models"
+    },
+    {
+      "name": "estimate_cost"
+    }
+  ]
+}

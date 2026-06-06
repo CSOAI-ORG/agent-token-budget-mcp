@@ -1,0 +1,22 @@
+# agent-token-budget-mcp
+
+> Agent Token Budget MCP — per-session spend cap with signed budget-exhausted attestations. Twin of bft-progress-council-mcp (spend-axis vs stall-axis guardrail). By MEOK AI Labs.
+
+MCP server by MEOK AI Labs. Framework: fastmcp. Transport: stdio.
+
+## Tools
+- start_budget
+- record_call
+- check_budget
+- get_summary
+- list_models
+- estimate_cost
+
+## Install
+```
+pip install agent-token-budget-mcp
+```
+
+## Links
+- PyPI: https://pypi.org/project/agent-token-budget-mcp/
+- Docs: https://meok.ai
