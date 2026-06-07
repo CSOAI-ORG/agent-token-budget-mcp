@@ -1,0 +1,24 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "agent-token-budget-mcp",
+    "description": "Agent Token Budget MCP \u2014 hard per-session token + spend cap with signed budget-exhausted",
+    "version": "1.1.1",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "agent-token-budget-mcp"
+      }
+    ],
+    "capabilities": [
+      "start_budget",
+      "record_call",
+      "check_budget",
+      "get_summary",
+      "list_models",
+      "estimate_cost"
+    ]
+  }
+}

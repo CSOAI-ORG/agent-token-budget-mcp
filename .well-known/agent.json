@@ -1,0 +1,77 @@
+{
+  "name": "agent-token-budget-mcp",
+  "description": "Agent Token Budget MCP \u2014 hard per-session token + spend cap with signed budget-exhausted",
+  "url": "https://proofof.ai/scorecard/agent-token-budget-mcp.html",
+  "version": "1.1.1",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "start_budget",
+      "name": "Start Budget",
+      "description": "start_budget via agent-token-budget-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "record_call",
+      "name": "Record Call",
+      "description": "record_call via agent-token-budget-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "check_budget",
+      "name": "Check Budget",
+      "description": "check_budget via agent-token-budget-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_summary",
+      "name": "Get Summary",
+      "description": "get_summary via agent-token-budget-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "list_models",
+      "name": "List Models",
+      "description": "list_models via agent-token-budget-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "estimate_cost",
+      "name": "Estimate Cost",
+      "description": "estimate_cost via agent-token-budget-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
