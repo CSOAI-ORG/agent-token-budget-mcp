@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.CSOAI-ORG/agent-token-budget-mcp",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Agent Token Budget MCP — hard per-session token + spend cap with signed budget-exhausted",
   "repository": {
     "url": "https://github.com/CSOAI-ORG/agent-token-budget-mcp",
@@ -11,7 +11,7 @@
     {
       "registryType": "pypi",
       "identifier": "agent-token-budget-mcp",
-      "version": "1.1.3",
+      "version": "1.1.4",
       "runtimeHint": "python",
       "transport": {
         "type": "stdio"
