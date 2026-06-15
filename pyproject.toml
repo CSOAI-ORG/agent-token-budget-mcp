@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "agent-token-budget-mcp"
-version = "1.1.4"
+version = "1.1.5"
 description = "Agent Token Budget MCP — per-session spend cap with signed budget-exhausted attestations. Twin of bft-progress-council-mcp (spend-axis vs stall-axis guardrail). By MEOK AI Labs."
 readme = "README.md"
 license = { text = "MIT" }
@@ -31,3 +31,22 @@ agent-token-budget-mcp = "server:main"
 
 [tool.setuptools]
 py-modules = ["server"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I", "N"]
+ignore = ["E501"]
+
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_Configs = true
+disallow_untyped_defs = true
+
