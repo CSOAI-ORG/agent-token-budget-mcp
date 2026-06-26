@@ -3,7 +3,7 @@ description: "> ## 🧱 Part of the MEOK A2A Substrate"
 version: 1.1.0
 author: MEOK AI Labs
 homepage: https://meok.ai
-repository: https://github.com/MEOK-AI-Labs/agent-token-budget-mcp
+repository: https://github.com/CSOAI-ORG/agent-token-budget-mcp
 license: MIT
 categories:
   - compliance
