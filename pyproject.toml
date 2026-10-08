@@ -19,7 +19,7 @@ classifiers = [
   "Topic :: Office/Business :: Financial",
   "Intended Audience :: Developers",
 ]
-dependencies = ["mcp[cli]>=1.3.0"]
+dependencies = ["mcp[cli]>=2.0.0"]
 
 [project.urls]
 Homepage = "https://meok.ai/a2a"
@@ -30,7 +30,7 @@ Documentation = "https://meok.ai/protocols"
 agent-token-budget-mcp = "server:main"
 
 [tool.setuptools]
-py-modules = ["server"]
+py-modules = ["server", "mcp2026_shim"]
 
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
